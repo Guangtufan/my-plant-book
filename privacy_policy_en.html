@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - My Plant Book</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 { color: #2c5530; border-bottom: 2px solid #2c5530; padding-bottom: 10px; }
+        h2 { color: #2c5530; margin-top: 30px; }
+        h3 { color: #444; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f5f5f5; font-weight: 600; }
+        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: Monaco, monospace; }
+        .effective-date { color: #666; font-style: italic; margin-bottom: 30px; }
+        .contact { background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p class="effective-date">Effective Date: April 16, 2026</p>
+
+    <h2>1. Developer Information</h2>
+    <ul>
+        <li><strong>App Name</strong>: MyPlantBook (我的植物收集册)</li>
+        <li><strong>Developer</strong>: Individual Developer</li>
+        <li><strong>Contact Email</strong>: myplantbook@163.com</li>
+    </ul>
+
+    <h2>2. Data We Collect</h2>
+    
+    <h3>2.1 Data You Provide</h3>
+    <table>
+        <tr>
+            <th>Data Type</th>
+            <th>Purpose</th>
+            <th>Storage Location</th>
+        </tr>
+        <tr>
+            <td><strong>Plant Photos</strong></td>
+            <td>Plant identification</td>
+            <td>Uploaded to ImgBB (compressed) and Qiniu Cloud (original) for processing</td>
+        </tr>
+        <tr>
+            <td><strong>Location Data</strong></td>
+            <td>1. Record photo location for map display<br>2. Real-time location for Trail feature (path recording and navigation)</td>
+            <td>Photo location: Associated with identification records<br>Trail location: Real-time use only, not permanently stored</td>
+        </tr>
+        <tr>
+            <td><strong>User Identifier</strong></td>
+            <td>Supabase-generated UUID for data association</td>
+            <td>Supabase database</td>
+        </tr>
+    </table>
+
+    <h3>2.2 Technical Data Automatically Collected</h3>
+    <ul>
+        <li><strong>No device information collected</strong></li>
+        <li><strong>No advertising identifiers</strong></li>
+        <li><strong>No third-party analytics tools</strong></li>
+    </ul>
+
+    <h2>3. Data Storage and Processing</h2>
+    
+    <h3>3.1 Server Locations</h3>
+    <ul>
+        <li><strong>Application Server</strong>: Google Cloud Platform (asia-east2 region)</li>
+        <li><strong>Authentication & Database</strong>: Supabase</li>
+        <li><strong>Plant Identification Database</strong>: NeonDB</li>
+        <li><strong>Image Storage</strong>: ImgBB + Qiniu Cloud</li>
+    </ul>
+
+    <h3>3.2 Data Retention</h3>
+    <table>
+        <tr>
+            <th>Data Type</th>
+            <th>Retention Policy</th>
+        </tr>
+        <tr>
+            <td>Plant Photos</td>
+            <td>Retained after identification for displaying user history</td>
+        </tr>
+        <tr>
+            <td>Identification Results</td>
+            <td>Retained and associated with photos</td>
+        </tr>
+        <tr>
+            <td>Location Data</td>
+            <td>Photo location: Retained and associated with identification records<br>Trail real-time location: Real-time use only, cleared after feature closes</td>
+        </tr>
+        <tr>
+            <td>Account Information</td>
+            <td>Retained while account is active</td>
+        </tr>
+    </table>
+
+    <h2>4. Account Deletion and Data Rights</h2>
+    
+    <h3>4.1 Your Rights</h3>
+    <ul>
+        <li><strong>Right to Access</strong>: View all your uploaded plant records</li>
+        <li><strong>Right to Deletion</strong>: Delete your account and associated data</li>
+        <li><strong>Right to Export</strong>: Your data is stored locally in CoreData and can be exported via device backup</li>
+    </ul>
+
+    <h3>4.2 Account Deletion Process</h3>
+    <p>Initiate deletion from [Account Management] page:</p>
+    <ol>
+        <li>Three-layer confirmation to prevent accidental deletion</li>
+        <li>Password re-verification for identity confirmation</li>
+        <li>Soft deletion (user_id set to 'USER_DELETED')</li>
+        <li>Supabase user identity deletion</li>
+        <li>Audit log records the deletion operation (for security auditing)</li>
+        <li>Local data cleanup</li>
+    </ol>
+    <p><strong>Note</strong>: After soft deletion, your identification records will be anonymized and cannot be linked to specific users.</p>
+
+    <h2>5. Third-Party Services</h2>
+    <p>We use the following third-party services:</p>
+    <table>
+        <tr>
+            <th>Service</th>
+            <th>Purpose</th>
+            <th>Privacy Policy</th>
+        </tr>
+        <tr>
+            <td><strong>Mapbox Maps</strong></td>
+            <td>Map display and location marking</td>
+            <td>https://www.mapbox.com/legal/privacy</td>
+        </tr>
+        <tr>
+            <td><strong>Supabase</strong></td>
+            <td>User authentication, database, storage</td>
+            <td>https://supabase.com/privacy</td>
+        </tr>
+        <tr>
+            <td><strong>ImgBB</strong></td>
+            <td>Temporary image hosting (compressed)</td>
+            <td>https://imgbb.com/privacy</td>
+        </tr>
+        <tr>
+            <td><strong>Qiniu Cloud</strong></td>
+            <td>Original high-resolution image storage</td>
+            <td>https://www.qiniu.com/privacy</td>
+        </tr>
+        <tr>
+            <td><strong>Sign in with Apple</strong></td>
+            <td>User login authentication</td>
+            <td>https://www.apple.com/legal/privacy/</td>
+        </tr>
+    </table>
+
+    <h2>6. User Rights and Permission Control</h2>
+    
+    <h3>6.1 All Permissions Are Optional</h3>
+    <p>All system permissions are <strong>optional</strong>. You can choose to allow or deny at first use, and can change them anytime in iOS Settings:</p>
+    <table>
+        <tr>
+            <th>Permission</th>
+            <th>If Denied</th>
+            <th>Alternative</th>
+        </tr>
+        <tr>
+            <td><strong>Camera</strong></td>
+            <td>Cannot take photos for identification</td>
+            <td>Select existing photos from library</td>
+        </tr>
+        <tr>
+            <td><strong>Photo Library</strong></td>
+            <td>Cannot select existing photos</td>
+            <td>Use camera to take photos</td>
+        </tr>
+        <tr>
+            <td><strong>Location (Photos)</strong></td>
+            <td>Photos won't record location</td>
+            <td>Normal identification, no map marker</td>
+        </tr>
+        <tr>
+            <td><strong>Location (Trail)</strong></td>
+            <td>Cannot record path and navigation</td>
+            <td>Trail feature limited, other features work</td>
+        </tr>
+        <tr>
+            <td><strong>Network</strong></td>
+            <td>Cannot upload for identification</td>
+            <td>Connect to network to use</td>
+        </tr>
+    </table>
+
+    <h3>6.2 Change Permissions Anytime</h3>
+    <p><strong>Settings Path</strong>: iOS Settings → MyPlantBook → Permissions</p>
+    <p>You can enable or disable any permission at any time without affecting saved data.</p>
+
+    <h2>7. Data Security</h2>
+    <ul>
+        <li>All data transmission uses HTTPS/TLS encryption</li>
+        <li>User passwords are encrypted with bcrypt (handled by Supabase)</li>
+        <li>Backend APIs use JWT authentication</li>
+        <li>Sensitive operations (e.g., account deletion) require password re-verification</li>
+    </ul>
+
+    <h2>7. Children's Privacy</h2>
+    <p>This app is not intended for children under 13. We do not knowingly collect personal information from children.</p>
+
+    <h2>8. Policy Updates</h2>
+    <p>We may update this Privacy Policy. Significant changes will be notified through in-app notifications or email.</p>
+
+    <h2>9. Contact Us</h2>
+    <div class="contact">
+        <p>For privacy-related questions, please contact:</p>
+        <p>📧 <strong>myplantbook@163.com</strong></p>
+    </div>
+
+    <h2>10. Permissions</h2>
+    <p>The app requires the following system permissions:</p>
+    <ul>
+        <li><strong>Camera</strong>: Take plant photos for identification</li>
+        <li><strong>Photo Library</strong>: Select existing photos for identification</li>
+        <li><strong>Location</strong>: Record photo location (optional, can be disabled in system settings)</li>
+        <li><strong>Network</strong>: Upload photos for cloud identification</li>
+    </ul>
+
+    <hr>
+    <p><em>This Privacy Policy applies to the iOS app "MyPlantBook" (我的植物收集册)</em></p>
+</body>
+</html>
