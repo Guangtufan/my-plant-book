@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>邮箱验证成功 / Email Confirmed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #F5F7F5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 48px 32px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .status-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(47, 125, 80, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 28px;
+        }
+
+        .status-ring svg {
+            width: 36px;
+            height: 36px;
+            color: #2F7D50;
+        }
+
+        h1 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #616161;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px 24px;
+            background-color: #2F7D50;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin-bottom: 16px;
+        }
+
+        .btn:hover {
+            background-color: #276642;
+        }
+
+        .btn:disabled {
+            background-color: #2F7D50;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #9E9E9E;
+            line-height: 1.5;
+        }
+
+        .auto-redirect {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+        .auto-redirect.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(47, 125, 80, 0.2);
+            border-top-color: #2F7D50;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .auto-redirect p {
+            font-size: 14px;
+            color: #2F7D50;
+            font-weight: 500;
+        }
+
+        .lang-switch {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #9E9E9E;
+        }
+
+        .lang-switch a {
+            color: #2F7D50;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .lang-switch a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="status-ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+
+        <h1 id="title"></h1>
+        <p class="subtitle" id="subtitle"></p>
+
+        <div class="auto-redirect" id="autoRedirect">
+            <div class="spinner"></div>
+            <p id="autoRedirectText"></p>
+        </div>
+
+        <button class="btn" id="openAppBtn" onclick="openApp()">
+            <span id="btnText"></span>
+        </button>
+
+        <p class="hint" id="hint"></p>
+
+        <div class="lang-switch">
+            <a id="langSwitch" onclick="toggleLang()"></a>
+        </div>
+    </div>
+
+    <script>
+        const APP_SCHEME = 'io.supabase.plantrec://';
+
+        const i18n = {
+            zh: {
+                title: '邮箱验证成功！',
+                subtitle: '你的植物图鉴已激活，现在可以开始探索了。',
+                btn: '打开 App',
+                autoRedirect: '正在尝试打开 App...',
+                hint: '如果没有自动跳转，请点击上方按钮',
+                langSwitch: 'English'
+            },
+            en: {
+                title: 'Email Confirmed!',
+                subtitle: 'Your plant book is ready. Start exploring now.',
+                btn: 'Open App',
+                autoRedirect: 'Opening app...',
+                hint: 'If the app doesn\'t open automatically, tap the button above.',
+                langSwitch: '中文'
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function detectLang() {
+            const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            // 只有中文环境显示中文，其他一律英文
+            if (lang.startsWith('zh')) {
+                return 'zh';
+            }
+            return 'en';
+        }
+
+        function applyLang(lang) {
+            currentLang = lang;
+            const texts = i18n[lang];
+            document.getElementById('title').textContent = texts.title;
+            document.getElementById('subtitle').textContent = texts.subtitle;
+            document.getElementById('btnText').textContent = texts.btn;
+            document.getElementById('autoRedirectText').textContent = texts.autoRedirect;
+            document.getElementById('hint').textContent = texts.hint;
+            document.getElementById('langSwitch').textContent = texts.langSwitch;
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        }
+
+        function toggleLang() {
+            const newLang = currentLang === 'zh' ? 'en' : 'zh';
+            applyLang(newLang);
+        }
+
+        function isMobile() {
+            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        }
+
+        function openApp() {
+            window.location.href = APP_SCHEME;
+        }
+
+        // 初始化语言
+        applyLang(detectLang());
+
+        // 手机端自动尝试跳转
+        if (isMobile()) {
+            const autoRedirectEl = document.getElementById('autoRedirect');
+            const hintEl = document.getElementById('hint');
+            autoRedirectEl.classList.add('active');
+            hintEl.style.display = 'none';
+
+            setTimeout(function() {
+                openApp();
+            }, 1200);
+
+            setTimeout(function() {
+                autoRedirectEl.classList.remove('active');
+                hintEl.style.display = 'block';
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
