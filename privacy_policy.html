@@ -5,233 +5,363 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>隐私政策 - 我的植物收集册</title>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            line-height: 1.8;
             color: #333;
+            background: #f5f5f5;
+            padding: 20px;
         }
-        h1 { color: #2c5530; border-bottom: 2px solid #2c5530; padding-bottom: 10px; }
-        h2 { color: #2c5530; margin-top: 30px; }
-        h3 { color: #444; }
-        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #f5f5f5; font-weight: 600; }
-        code { background-color: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: Monaco, monospace; }
-        .effective-date { color: #666; font-style: italic; margin-bottom: 30px; }
-        .contact { background-color: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 30px; }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 28px;
+            color: #2c5f2d;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .effective-date {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        h2 {
+            font-size: 20px;
+            color: #2c5f2d;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #e8f5e9;
+        }
+        h3 {
+            font-size: 16px;
+            color: #444;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+        p { margin-bottom: 12px; }
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+        li { margin-bottom: 6px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px 12px;
+            text-align: left;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #555;
+        }
+        tr:nth-child(even) { background: #fafafa; }
+        a { color: #2c5f2d; }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+        }
+        .highlight {
+            background: #fff8e1;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 12px 0;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 24px; }
+            h1 { font-size: 22px; }
+            table { font-size: 12px; }
+            th, td { padding: 8px; }
+        }
     </style>
 </head>
 <body>
-    <h1>隐私政策</h1>
-    <p class="effective-date">生效日期: 2026年4月16日</p>
+    <div class="container">
+        <h1>隐私政策</h1>
+        <p class="effective-date">生效日期: 2026年5月12日</p>
 
-    <h2>1. 开发者信息</h2>
-    <ul>
-        <li><strong>应用名称</strong>: 我的植物收集册 (MyPlantBook)</li>
-        <li><strong>开发者</strong>: 个人开发者</li>
-        <li><strong>联系邮箱</strong>: myplantbook@163.com</li>
-    </ul>
+        <h2>1. 开发者信息</h2>
+        <ul>
+            <li><strong>应用名称</strong>: 我的植物收集册 (MyPlantBook)</li>
+            <li><strong>开发者</strong>: 个人开发者</li>
+            <li><strong>联系邮箱</strong>: myplantbook@163.com</li>
+        </ul>
 
-    <h2>2. 我们收集的数据</h2>
-    
-    <h3>2.1 您主动提供的数据</h3>
-    <table>
-        <tr>
-            <th>数据类型</th>
-            <th>用途</th>
-            <th>存储位置</th>
-        </tr>
-        <tr>
-            <td><strong>植物照片</strong></td>
-            <td>植物识别</td>
-            <td>上传至 ImgBB（有损压缩图）和七牛云（高清原图）用于识别处理</td>
-        </tr>
-        <tr>
-            <td><strong>地理位置</strong></td>
-            <td>1. 记录照片拍摄位置，用于地图标记<br>2. Trail 功能实时定位，用于路径记录和导航</td>
-            <td>照片位置：与识别记录关联存储<br>Trail 定位：仅实时使用，不长期存储</td>
-        </tr>
-        <tr>
-            <td><strong>用户标识</strong></td>
-            <td>Supabase 生成的唯一用户 ID（UUID），用于数据关联</td>
-            <td>Supabase 数据库</td>
-        </tr>
-    </table>
+        <h2>2. 我们收集的数据</h2>
 
-    <h3>2.2 自动收集的技术数据</h3>
-    <ul>
-        <li><strong>无设备信息收集</strong></li>
-        <li><strong>无广告追踪标识符</strong></li>
-        <li><strong>无第三方 Analytics 工具</strong></li>
-    </ul>
+        <h3>2.1 您主动提供的数据</h3>
+        <table>
+            <tr>
+                <th>数据类型</th>
+                <th>用途</th>
+                <th>存储位置</th>
+            </tr>
+            <tr>
+                <td><strong>植物照片</strong></td>
+                <td>植物识别</td>
+                <td>上传至后端服务器处理后，高清原图及压缩图存储于七牛云；识别过程中图片会转发至 Pl@ntNet（法国）进行<strong>实时识别处理</strong>，Pl@ntNet 不会长期存储您的图片，也不会将图片用于 AI 模型训练或其他用途</td>
+            </tr>
+            <tr>
+                <td><strong>地理位置</strong></td>
+                <td>1. 记录照片拍摄位置，用于地图标记<br>2. Trail 功能实时定位，用于路径记录和导航</td>
+                <td>照片位置：与识别记录关联存储<br>Trail 定位：仅实时使用，不长期存储</td>
+            </tr>
+            <tr>
+                <td><strong>用户标识</strong></td>
+                <td>Supabase 生成的唯一用户 ID（UUID），用于数据关联</td>
+                <td>Supabase 数据库</td>
+            </tr>
+            <tr>
+                <td><strong>电子邮箱</strong></td>
+                <td>邮箱登录方式的身份识别及账户恢复</td>
+                <td>Supabase 认证系统（如使用邮箱注册）</td>
+            </tr>
+        </table>
 
-    <h2>3. 数据存储与处理</h2>
-    
-    <h3>3.1 服务器位置</h3>
-    <ul>
-        <li><strong>应用服务器</strong>: Google Cloud Platform (asia-east2 区域)</li>
-        <li><strong>用户认证与数据库</strong>: Supabase</li>
-        <li><strong>植物识别数据库</strong>: NeonDB</li>
-        <li><strong>图片存储</strong>: ImgBB + 七牛云</li>
-    </ul>
+        <h3>2.2 自动收集的技术数据</h3>
+        <ul>
+            <li><strong>运维日志</strong>: 我们的后端服务器（Google Cloud Run）会自动记录请求日志，用于应用稳定性监控、错误排查及功能运维。日志中<strong>不包含</strong>用户身份信息（如用户 ID、IP 地址、精确地理位置或植物照片内容）。</li>
+            <li><strong>无广告追踪标识符</strong></li>
+            <li><strong>无第三方 Analytics 工具</strong></li>
+        </ul>
 
-    <h3>3.2 数据跨境传输</h3>
-    <p>您的个人信息可能存储于中国大陆境外（东北亚地区，如日本、韩国等地的云服务器）。我们已采取符合《中华人民共和国个人信息保护法》要求的安全措施保护您的数据，包括加密传输和存储。您继续使用本服务即视为知悉并同意上述数据跨境传输安排。</p>
+        <h2>3. 数据存储与处理</h2>
 
-    <h3>3.3 数据保留期限</h3>
-    <table>
-        <tr>
-            <th>数据类型</th>
-            <th>保留策略</th>
-        </tr>
-        <tr>
-            <td>植物照片</td>
-            <td>识别完成后保留，用于展示用户历史记录</td>
-        </tr>
-        <tr>
-            <td>识别结果</td>
-            <td>与照片关联保留</td>
-        </tr>
-        <tr>
-            <td>地理位置</td>
-            <td>照片位置：与识别记录关联保留<br>Trail 实时定位：仅实时使用，关闭功能后清除</td>
-        </tr>
-        <tr>
-            <td>账户信息</td>
-            <td>账户存续期间保留</td>
-        </tr>
-    </table>
+        <h3>3.1 服务器位置</h3>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>位置</th>
+            </tr>
+            <tr>
+                <td>应用服务器</td>
+                <td>Google Cloud Platform — asia-east2 区域（中国香港特别行政区）</td>
+            </tr>
+            <tr>
+                <td>用户认证与数据库</td>
+                <td>Supabase</td>
+            </tr>
+            <tr>
+                <td>植物识别数据库</td>
+                <td>NeonDB</td>
+            </tr>
+            <tr>
+                <td>图片存储</td>
+                <td>七牛云</td>
+            </tr>
+            <tr>
+                <td>植物识别处理</td>
+                <td>Pl@ntNet 服务器（法国）</td>
+            </tr>
+        </table>
 
-    <h2>4. 账户删除与数据权利</h2>
-    
-    <h3>4.1 您拥有的权利</h3>
-    <ul>
-        <li><strong>访问权</strong>: 查看您上传的所有植物记录</li>
-        <li><strong>删除权</strong>: 删除您的账户及关联数据</li>
-        <li><strong>导出权</strong>: 您的数据存储在本地 CoreData 中，可通过设备备份导出</li>
-    </ul>
+        <h3>3.2 数据跨境传输</h3>
+        <p>您的个人信息可能存储于中国大陆境外，包括：</p>
+        <ul>
+            <li><strong>中国香港特别行政区</strong>：应用主服务器（Google Cloud asia-east2）</li>
+            <li><strong>法国</strong>：植物识别时，图片会传输至 Pl@ntNet 服务器进行处理</li>
+        </ul>
+        <p>我们已采取符合《中华人民共和国个人信息保护法》要求的安全措施保护您的数据，包括加密传输和存储。<strong>在首次使用涉及跨境数据传输的功能（如植物识别）前，我们将通过应用内弹窗请求您的明确授权。</strong>如您不同意跨境传输，可选择不使用相关功能。</p>
 
-    <h3>4.2 账户删除流程</h3>
-    <p>在【账户管理】页面发起删除：</p>
-    <ol>
-        <li>三层确认弹窗防止误操作</li>
-        <li>密码二次验证身份</li>
-        <li>数据软删除（user_id 置为 'USER_DELETED'）</li>
-        <li>Supabase 用户身份删除</li>
-        <li>审计日志记录删除操作（用于安全审计）</li>
-        <li>本地数据清理</li>
-    </ol>
-    <p><strong>注意</strong>: 软删除后，您的识别记录将匿名化，无法关联到具体用户。</p>
+        <h3>3.3 数据保留期限</h3>
+        <table>
+            <tr>
+                <th>数据类型</th>
+                <th>保留策略</th>
+            </tr>
+            <tr>
+                <td>植物照片</td>
+                <td>识别完成后保留，用于展示用户历史记录</td>
+            </tr>
+            <tr>
+                <td>识别结果</td>
+                <td>与照片关联保留</td>
+            </tr>
+            <tr>
+                <td>地理位置</td>
+                <td>照片位置：与识别记录关联保留<br>Trail 实时定位：<strong>仅在设备端实时使用，不上传至任何服务器</strong>，关闭功能后即刻清除</td>
+            </tr>
+            <tr>
+                <td>账户信息</td>
+                <td>账户存续期间保留</td>
+            </tr>
+            <tr>
+                <td>运维日志</td>
+                <td>保留 30 天后自动删除</td>
+            </tr>
+        </table>
 
-    <h2>5. 第三方服务</h2>
-    <p>我们使用以下第三方服务：</p>
-    <table>
-        <tr>
-            <th>服务</th>
-            <th>用途</th>
-            <th>隐私政策</th>
-        </tr>
-        <tr>
-            <td><strong>Mapbox Maps</strong></td>
-            <td>地图显示与位置标记</td>
-            <td>https://www.mapbox.com/legal/privacy</td>
-        </tr>
-        <tr>
-            <td><strong>Supabase</strong></td>
-            <td>用户认证、数据库、存储</td>
-            <td>https://supabase.com/privacy</td>
-        </tr>
-        <tr>
-            <td><strong>ImgBB</strong></td>
-            <td>图片临时托管（有损压缩）</td>
-            <td>https://imgbb.com/privacy</td>
-        </tr>
-        <tr>
-            <td><strong>七牛云</strong></td>
-            <td>高清原图存储</td>
-            <td>https://www.qiniu.com/privacy</td>
-        </tr>
-        <tr>
-            <td><strong>Sign in with Apple</strong></td>
-            <td>用户登录认证</td>
-            <td>https://www.apple.com/legal/privacy/</td>
-        </tr>
-    </table>
+        <h2>4. 账户删除与数据权利</h2>
 
-    <h2>6. 用户权利与权限控制</h2>
-    
-    <h3>6.1 权限均为可选</h3>
-    <p>所有系统权限均为<strong>可选</strong>，您可以在首次使用时选择允许或拒绝，也可以随时在 iOS 系统设置中更改：</p>
-    <table>
-        <tr>
-            <th>权限</th>
-            <th>用户拒绝后的影响</th>
-            <th>替代方案</th>
-        </tr>
-        <tr>
-            <td><strong>相机</strong></td>
-            <td>无法拍照识别</td>
-            <td>可从相册选择已有照片</td>
-        </tr>
-        <tr>
-            <td><strong>相册</strong></td>
-            <td>无法选择已有照片</td>
-            <td>可使用相机拍照</td>
-        </tr>
-        <tr>
-            <td><strong>位置（照片）</strong></td>
-            <td>照片不记录位置信息</td>
-            <td>正常识别，地图不显示该标记</td>
-        </tr>
-        <tr>
-            <td><strong>位置（Trail）</strong></td>
-            <td>无法记录路径和导航</td>
-            <td>Trail 功能受限，其他功能正常</td>
-        </tr>
-        <tr>
-            <td><strong>网络</strong></td>
-            <td>无法上传识别</td>
-            <td>需连接网络后使用</td>
-        </tr>
-    </table>
+        <h3>4.1 您拥有的权利</h3>
+        <ul>
+            <li><strong>访问权</strong>：查看您上传的所有植物记录</li>
+            <li><strong>删除权</strong>：删除您的账户及关联数据</li>
+            <li><strong>导出权</strong>：您的数据主要存储于云端数据库（Supabase / NeonDB），您可通过应用内账户管理功能访问您的云端数据；本地 Core Data 仅作为缓存层用于离线访问，您也可通过设备备份导出本地缓存数据</li>
+        </ul>
 
-    <h3>6.2 随时更改权限</h3>
-    <p><strong>设置路径</strong>：iOS 设置 → MyPlantBook → 权限管理</p>
-    <p>您可以随时开启或关闭任何权限，不会影响已保存的数据。</p>
+        <h3>4.2 账户删除流程</h3>
+        <p>在【账户管理】页面发起删除：</p>
+        <ol>
+            <li>三层确认弹窗防止误操作</li>
+            <li>身份二次验证（根据登录方式，可能需要密码或 Apple ID 验证）</li>
+            <li>数据软删除（user_id 置为 'USER_DELETED'）</li>
+            <li>Supabase 用户身份删除</li>
+            <li>审计日志记录删除操作（用于安全审计）</li>
+            <li>本地数据清理</li>
+        </ol>
+        <p><strong>注意</strong>：软删除后，您的识别记录将与用户身份永久解除关联（匿名化），并在后续周期内从服务器物理删除。同时，本地数据也会被同步清理，确保云端与本地数据双向一致删除。</p>
 
-    <h2>7. 数据安全</h2>
-    <ul>
-        <li>所有数据传输使用 HTTPS/TLS 加密</li>
-        <li>用户密码通过 bcrypt 加密存储（Supabase 处理）</li>
-        <li>后端 API 使用 JWT 认证</li>
-        <li>敏感操作（如删除账户）需要密码二次验证</li>
-    </ul>
+        <h2>5. 第三方服务</h2>
+        <p>我们使用以下第三方服务：</p>
+        <table>
+            <tr>
+                <th>服务</th>
+                <th>用途</th>
+                <th>隐私政策</th>
+            </tr>
+            <tr>
+                <td><strong>Pl@ntNet</strong></td>
+                <td>植物识别及参考图片提供</td>
+                <td><a href="https://plantnet.org/en/privacy/" target="_blank">https://plantnet.org/en/privacy/</a></td>
+            </tr>
+            <tr>
+                <td><strong>Wikipedia</strong></td>
+                <td>植物知识信息（名称、描述等）</td>
+                <td><a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy" target="_blank">https://foundation.wikimedia.org/wiki/Policy:Privacy_policy</a></td>
+            </tr>
+            <tr>
+                <td><strong>Mapbox Maps</strong></td>
+                <td>地图显示与位置标记</td>
+                <td><a href="https://www.mapbox.com/legal/privacy" target="_blank">https://www.mapbox.com/legal/privacy</a></td>
+            </tr>
+            <tr>
+                <td><strong>Supabase</strong></td>
+                <td>用户认证、数据库</td>
+                <td><a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td><strong>七牛云</strong></td>
+                <td>图片存储（压缩图及高清原图）</td>
+                <td><a href="https://www.qiniu.com/privacy" target="_blank">https://www.qiniu.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td><strong>Sign in with Apple</strong></td>
+                <td>用户登录认证</td>
+                <td><a href="https://www.apple.com/legal/privacy/" target="_blank">https://www.apple.com/legal/privacy/</a></td>
+            </tr>
+            <tr>
+                <td><strong>Apple App Store</strong></td>
+                <td>应用内购买（订阅）处理</td>
+                <td><a href="https://www.apple.com/legal/privacy/" target="_blank">https://www.apple.com/legal/privacy/</a></td>
+            </tr>
+        </table>
 
-    <h2>7. 儿童隐私</h2>
-    <p>本应用不面向 13 岁以下儿童。我们不会故意收集儿童的个人信息。</p>
+        <div class="highlight">
+            <strong>关于图片数据来源</strong>：应用内展示的植物参考图片来源于 Pl@ntNet 社区贡献，受 Creative Commons 等开源许可协议约束。这些图片<strong>仅用于应用内展示</strong>，不用于商业再分发。我们在应用内提供了详细的来源归属及许可信息展示。
+        </div>
 
-    <h2>8. 政策更新</h2>
-    <p>我们可能会更新本隐私政策。重大变更将通过应用内通知或邮件告知。</p>
+        <p><strong>关于数据处理责任</strong>：Pl@ntNet 仅作为植物识别目的的<strong>独立数据处理者</strong>（Data Processor），我们（应用开发者）仍是您个人数据的控制者（Data Controller）。Pl@ntNet 不会将您的图片用于其自身目的，也不会与其他方共享。</p>
 
-    <h2>9. 联系我们</h2>
-    <div class="contact">
-        <p>如有隐私相关问题，请联系：</p>
-        <p>📧 <strong>myplantbook@163.com</strong></p>
+        <p><strong>关于第三方服务使用原则</strong>：我们不会使用任何第三方服务进行用户追踪、广告定向或用户画像分析。所有第三方服务仅用于实现应用的核心功能。</p>
+
+        <h2>6. 用户权利与权限控制</h2>
+
+        <h3>6.1 权限均为可选</h3>
+        <p>所有系统权限均为 <strong>可选</strong>，您可以在首次使用时选择允许或拒绝，也可以随时在 iOS 系统设置中更改：</p>
+        <table>
+            <tr>
+                <th>权限</th>
+                <th>用户拒绝后的影响</th>
+                <th>替代方案</th>
+            </tr>
+            <tr>
+                <td><strong>相机</strong></td>
+                <td>无法拍照识别</td>
+                <td>可从相册选择已有照片</td>
+            </tr>
+            <tr>
+                <td><strong>相册</strong></td>
+                <td>无法选择已有照片</td>
+                <td>可使用相机拍照</td>
+            </tr>
+            <tr>
+                <td><strong>位置（照片）</strong></td>
+                <td>照片不记录位置信息</td>
+                <td>正常识别，地图不显示该标记</td>
+            </tr>
+            <tr>
+                <td><strong>位置（Trail）</strong></td>
+                <td>无法记录路径和导航</td>
+                <td>Trail 功能受限，其他功能正常</td>
+            </tr>
+            <tr>
+                <td><strong>网络</strong></td>
+                <td>无法上传识别</td>
+                <td>需连接网络后使用</td>
+            </tr>
+        </table>
+
+        <h3>6.2 随时更改权限</h3>
+        <p><strong>设置路径</strong>：iOS 设置 → MyPlantBook → 权限管理</p>
+        <p>您可以随时开启或关闭任何权限，不会影响已保存的数据。</p>
+
+        <h2>7. 应用内购买</h2>
+        <p>本应用提供应用内订阅服务，由 <strong>Apple App Store</strong> 统一处理。我们不直接收集、存储或处理您的支付信息（如信用卡号、账单地址等）。所有订阅管理、付款处理及退款事宜均由 Apple 负责。</p>
+        <p>您可以在 iOS 设置 → Apple ID → 订阅 中查看、修改或取消您的订阅。</p>
+
+        <h2>8. 数据安全</h2>
+        <ul>
+            <li>所有数据传输使用 HTTPS/TLS 加密</li>
+            <li>用户密码通过 bcrypt 加密存储（Supabase 处理）</li>
+            <li>后端 API 使用 JWT 认证</li>
+            <li>敏感操作（如删除账户）需要身份二次验证</li>
+        </ul>
+
+        <h2>9. 儿童隐私</h2>
+        <p>本应用不面向 13 岁以下儿童。我们不会故意收集儿童的个人信息。</p>
+
+        <h2>10. 政策更新</h2>
+        <p>我们可能会更新本隐私政策。重大变更将通过应用内通知或邮件告知。</p>
+
+        <h2>11. 联系我们</h2>
+        <p>如您对本隐私政策有任何疑问，或希望行使您的数据权利，请通过以下方式联系我们：</p>
+        <ul>
+            <li><strong>邮箱</strong>：myplantbook@163.com</li>
+        </ul>
+
+        <h2>12. 权限说明</h2>
+        <p>应用需要以下系统权限：</p>
+        <ul>
+            <li><strong>相机</strong>：拍摄植物照片进行识别</li>
+            <li><strong>照片库</strong>：选择已有照片进行识别</li>
+            <li><strong>位置</strong>：记录拍摄地点（可选，可在系统设置中关闭）</li>
+            <li><strong>网络</strong>：上传照片进行云端识别</li>
+        </ul>
+
+        <div class="footer">
+            <p>本隐私政策适用于 iOS 应用「我的植物收集册」(MyPlantBook)</p>
+            <p>最后更新：2026年5月12日</p>
+        </div>
     </div>
-
-    <h2>10. 权限说明</h2>
-    <p>应用需要以下系统权限：</p>
-    <ul>
-        <li><strong>相机</strong>: 拍摄植物照片进行识别</li>
-        <li><strong>照片库</strong>: 选择已有照片进行识别</li>
-        <li><strong>位置</strong>: 记录拍摄地点（可选，可在系统设置中关闭）</li>
-        <li><strong>网络</strong>: 上传照片进行云端识别</li>
-    </ul>
-
-    <hr>
-    <p><em>本隐私政策适用于 iOS 应用「我的植物收集册」(MyPlantBook)</em></p>
 </body>
 </html>
