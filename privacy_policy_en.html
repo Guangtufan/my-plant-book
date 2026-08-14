@@ -97,7 +97,7 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="effective-date">Effective Date: May 12, 2026</p>
+        <p class="effective-date">Effective Date: August 14, 2026</p>
 
         <h2>1. Developer Information</h2>
         <ul>
@@ -117,18 +117,18 @@
             </tr>
             <tr>
                 <td><strong>Plant Photos</strong></td>
-                <td>Plant identification</td>
-                <td>Uploaded to our backend server, then stored on Qiniu Cloud (both compressed and original); during identification, images are forwarded to Pl@ntNet (France) for <strong>real-time identification only</strong>. Pl@ntNet does not retain your images long-term or use them for AI model training</td>
+                <td>Plant identification, journal display, collection history, and cloud sync</td>
+                <td>Uploaded to our backend server and stored on Qiniu Cloud as compressed images; during identification, images are forwarded to Pl@ntNet for plant identification according to Pl@ntNet's privacy policy</td>
             </tr>
             <tr>
                 <td><strong>Location Data</strong></td>
-                <td>1. Record photo location for map display<br>2. Real-time location for Trail feature (path recording and navigation)</td>
-                <td>Photo location: Associated with identification records<br>Trail location: <strong>Used only on-device in real-time, never uploaded to any server</strong>, cleared immediately after the feature closes</td>
+                <td>1. Record photo location for map display<br>2. Use current location to recenter the Trail map</td>
+                <td>Photo location: Associated with identification records when available<br>Current location for map recentering: <strong>Used only on-device in real time and not stored as a trail path</strong></td>
             </tr>
             <tr>
                 <td><strong>User Identifier</strong></td>
                 <td>Supabase-generated UUID for data association</td>
-                <td>Supabase database</td>
+                <td>Supabase authentication system and application databases</td>
             </tr>
             <tr>
                 <td><strong>Email Address</strong></td>
@@ -139,7 +139,7 @@
 
         <h3>2.2 Technical Data Automatically Collected</h3>
         <ul>
-            <li><strong>Operations Logs</strong>: Our backend servers (Google Cloud Run) automatically record request logs for application stability monitoring, error troubleshooting, and operational maintenance. Logs <strong>do not</strong> contain user-identifying information (such as user ID, IP address, precise location, or plant photo content).</li>
+            <li><strong>Operations Logs</strong>: Our backend servers (Google Cloud Run) automatically record request logs for application stability monitoring, error troubleshooting, and operational maintenance. We do not intentionally include plant photo content or precise location data in application logs.</li>
             <li><strong>No advertising identifiers</strong></li>
             <li><strong>No third-party analytics tools</strong></li>
         </ul>
@@ -158,27 +158,27 @@
             </tr>
             <tr>
                 <td>Authentication & Database</td>
-                <td>Supabase</td>
+                <td>Supabase-operated infrastructure, which may process data in regions where Supabase operates</td>
             </tr>
             <tr>
                 <td>Plant Identification Database</td>
-                <td>NeonDB</td>
+                <td>NeonDB-operated infrastructure, which may process data in regions where NeonDB operates</td>
             </tr>
             <tr>
                 <td>Image Storage</td>
-                <td>Qiniu Cloud</td>
+                <td>Qiniu Cloud-operated infrastructure</td>
             </tr>
             <tr>
                 <td>Plant Identification Processing</td>
-                <td>Pl@ntNet servers (France)</td>
+                <td>Pl@ntNet servers</td>
             </tr>
         </table>
 
         <h3>3.2 Cross-Border Data Transfer</h3>
-        <p>Your personal information may be stored outside mainland China, including:</p>
+        <p>Your personal information may be stored or processed outside mainland China, including:</p>
         <ul>
             <li><strong>Hong Kong SAR, China</strong>: Main application server (Google Cloud asia-east2)</li>
-            <li><strong>France</strong>: During plant identification, images are transmitted to Pl@ntNet servers for processing</li>
+            <li><strong>Regions operated by third-party service providers</strong>: Supabase, NeonDB, Qiniu Cloud, Pl@ntNet, Mapbox, BigDataCloud, Wikipedia, and Apple services may process data in regions where they operate</li>
         </ul>
         <p>We have implemented security measures compliant with applicable data protection laws, including encrypted transmission and storage. <strong>Before using features that involve cross-border data transfer (such as plant identification), we will request your explicit authorization through an in-app dialog.</strong> If you do not agree to cross-border transfers, you may choose not to use such features.</p>
 
@@ -190,15 +190,15 @@
             </tr>
             <tr>
                 <td>Plant Photos</td>
-                <td>Retained after identification for displaying user history</td>
+                <td>Retained after identification for displaying user history, journals, collection, and cloud sync</td>
             </tr>
             <tr>
                 <td>Identification Results</td>
-                <td>Retained and associated with photos</td>
+                <td>Retained and associated with photos and plant journal records</td>
             </tr>
             <tr>
                 <td>Location Data</td>
-                <td>Photo location: Retained and associated with identification records<br>Trail real-time location: <strong>Used only on-device in real-time, never uploaded to any server</strong>, cleared immediately after the feature closes</td>
+                <td>Photo location: Retained and associated with identification records when available<br>Current location for map recentering: <strong>Used only on-device in real time and not stored as a trail path</strong></td>
             </tr>
             <tr>
                 <td>Account Information</td>
@@ -206,7 +206,7 @@
             </tr>
             <tr>
                 <td>Operations Logs</td>
-                <td>Automatically deleted after 30 days</td>
+                <td>Retained only as long as needed for stability monitoring, troubleshooting, security, and operational maintenance</td>
             </tr>
         </table>
 
@@ -214,9 +214,9 @@
 
         <h3>4.1 Your Rights</h3>
         <ul>
-            <li><strong>Right to Access</strong>: View all your uploaded plant records</li>
+            <li><strong>Right to Access</strong>: View your plant records in the app</li>
             <li><strong>Right to Deletion</strong>: Delete your account and associated data</li>
-            <li><strong>Right to Export</strong>: Your data is primarily stored in cloud databases (Supabase / NeonDB), accessible through the in-app account management. Core Data on your device serves as a cache layer for offline access only. You can also export local cached data via device backup.</li>
+            <li><strong>Right to Export</strong>: You may contact us to request access to or export of your data. Local cached data may also be included in your device backup depending on your iOS settings.</li>
         </ul>
 
         <h3>4.2 Account Deletion Process</h3>
@@ -224,12 +224,12 @@
         <ol>
             <li>Three-layer confirmation to prevent accidental deletion</li>
             <li>Secondary identity verification (password or Apple ID verification, depending on login method)</li>
-            <li>Soft deletion (user_id set to 'USER_DELETED')</li>
+            <li>Soft deletion or disassociation of application data</li>
             <li>Supabase user identity deletion</li>
             <li>Audit log records the deletion operation (for security auditing)</li>
             <li>Local data cleanup</li>
         </ol>
-        <p><strong>Note</strong>: After soft deletion, your identification records will be permanently disassociated from your identity (anonymized) and physically deleted from servers in a subsequent cycle. Local data is also synchronously cleaned to ensure consistent deletion across cloud and local storage.</p>
+        <p><strong>Note</strong>: After deletion, your identification records will be disassociated from your identity or removed according to the deletion process. Local data is also cleaned to ensure consistent deletion across cloud and local storage.</p>
 
         <h2>5. Third-Party Services</h2>
         <p>We use the following third-party services:</p>
@@ -255,13 +255,18 @@
                 <td><a href="https://www.mapbox.com/legal/privacy" target="_blank">https://www.mapbox.com/legal/privacy</a></td>
             </tr>
             <tr>
+                <td><strong>BigDataCloud</strong></td>
+                <td>Fallback reverse geocoding for location display</td>
+                <td><a href="https://www.bigdatacloud.com/privacy" target="_blank">https://www.bigdatacloud.com/privacy</a></td>
+            </tr>
+            <tr>
                 <td><strong>Supabase</strong></td>
-                <td>User authentication, database</td>
+                <td>User authentication and account management</td>
                 <td><a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a></td>
             </tr>
             <tr>
                 <td><strong>Qiniu Cloud</strong></td>
-                <td>Image storage (compressed and original)</td>
+                <td>Image storage for plant records</td>
                 <td><a href="https://www.qiniu.com/privacy" target="_blank">https://www.qiniu.com/privacy</a></td>
             </tr>
             <tr>
@@ -277,10 +282,10 @@
         </table>
 
         <div class="highlight">
-            <strong>About Image Data Sources</strong>: Reference images displayed in the app are sourced from the Pl@ntNet community, subject to Creative Commons and other open-source license agreements. These images are <strong>displayed in-app only</strong> and are not redistributed for commercial purposes. We provide detailed source attribution and licensing information within the app.
+            <strong>About Image Data Sources</strong>: Reference images displayed in the app may be sourced from the Pl@ntNet community, subject to Creative Commons and other open-source license agreements. These images are <strong>displayed in-app only</strong> and are not redistributed for commercial purposes. We provide source attribution and licensing information within the app when available.
         </div>
 
-        <p><strong>Data Processing Responsibility</strong>: Pl@ntNet acts solely as an independent <strong>Data Processor</strong> for plant identification purposes. We (the app developer) remain the <strong>Data Controller</strong> of your personal data. Pl@ntNet does not use your images for its own purposes or share them with other parties.</p>
+        <p><strong>Third-Party Identification Service</strong>: During plant identification, your selected image may be sent to Pl@ntNet for processing. Pl@ntNet processes such data according to its own privacy policy.</p>
 
         <p><strong>Third-Party Service Usage Principles</strong>: We do not use any third-party services for user tracking, advertising targeting, or user profiling. All third-party services are used solely to implement the core functionality of the app.</p>
 
@@ -306,24 +311,19 @@
             </tr>
             <tr>
                 <td><strong>Location (Photos)</strong></td>
-                <td>Photos won't record location</td>
-                <td>Normal identification, no map marker</td>
+                <td>Photos may not include location information</td>
+                <td>Normal identification, no map marker for photos without location</td>
             </tr>
             <tr>
                 <td><strong>Location (Trail)</strong></td>
-                <td>Cannot record path and navigation</td>
-                <td>Trail feature limited, other features work</td>
-            </tr>
-            <tr>
-                <td><strong>Network</strong></td>
-                <td>Cannot upload for identification</td>
-                <td>Connect to network to use</td>
+                <td>Cannot recenter the map to your current location</td>
+                <td>Trail map and existing plant markers remain available</td>
             </tr>
         </table>
 
         <h3>6.2 Change Permissions Anytime</h3>
         <p><strong>Settings Path</strong>: iOS Settings → MyPlantBook → Permissions</p>
-        <p>You can enable or disable any permission at any time without affecting saved data.</p>
+        <p>You can enable or disable any permission at any time without affecting saved data. Some features also require an active network connection to upload photos, identify plants, sync cloud data, or load maps.</p>
 
         <h2>7. In-App Purchases</h2>
         <p>This app offers in-app subscription services, processed by <strong>Apple App Store</strong>. We do not directly collect, store, or process your payment information (such as credit card numbers or billing addresses). All subscription management, payment processing, and refund matters are handled by Apple.</p>
@@ -332,7 +332,7 @@
         <h2>8. Data Security</h2>
         <ul>
             <li>All data transmission uses HTTPS/TLS encryption</li>
-            <li>User passwords are encrypted with bcrypt (handled by Supabase)</li>
+            <li>User passwords are handled by Supabase authentication services</li>
             <li>Backend APIs use JWT authentication</li>
             <li>Sensitive operations (e.g., account deletion) require secondary identity verification</li>
         </ul>
@@ -341,7 +341,7 @@
         <p>This app is not intended for children under 13. We do not knowingly collect personal information from children.</p>
 
         <h2>10. Policy Updates</h2>
-        <p>We may update this Privacy Policy. Significant changes will be notified through in-app notifications or email.</p>
+        <p>We may update this Privacy Policy. Significant changes will be notified through in-app notifications, email, or an updated policy page.</p>
 
         <h2>11. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, or wish to exercise your data rights, please contact us:</p>
@@ -350,17 +350,16 @@
         </ul>
 
         <h2>12. Permissions</h2>
-        <p>The app requires the following system permissions:</p>
+        <p>The app may request the following system permissions:</p>
         <ul>
             <li><strong>Camera</strong>: Take plant photos for identification</li>
             <li><strong>Photo Library</strong>: Select existing photos for identification</li>
-            <li><strong>Location</strong>: Record photo location (optional, can be disabled in system settings)</li>
-            <li><strong>Network</strong>: Upload photos for cloud identification</li>
+            <li><strong>Location</strong>: Record photo location when available and recenter the Trail map to your current location (optional, can be disabled in system settings)</li>
         </ul>
 
         <div class="footer">
             <p>This Privacy Policy applies to the iOS app "MyPlantBook" (我的植物收集册)</p>
-            <p>Last Updated: May 12, 2026</p>
+            <p>Last Updated: August 14, 2026</p>
         </div>
     </div>
 </body>
