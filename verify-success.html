@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", "Noto Sans SC", "PingFang TC", "PingFang SC", "Microsoft JhengHei", "Microsoft YaHei", sans-serif;
             background-color: #F5F7F5;
             min-height: 100vh;
             display: flex;
@@ -130,15 +130,30 @@
             color: #9E9E9E;
         }
 
-        .lang-switch a {
+        .lang-switch button {
+            background: none;
+            border: none;
+            padding: 6px 8px;
+            font: inherit;
             color: #2F7D50;
             text-decoration: none;
             font-weight: 500;
             cursor: pointer;
         }
 
-        .lang-switch a:hover {
+        .lang-switch button:hover {
             text-decoration: underline;
+        }
+
+        .lang-switch button[aria-pressed="true"] {
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .lang-switch button:focus-visible {
+            outline: 2px solid #2F7D50;
+            outline-offset: 2px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -165,7 +180,9 @@
         <p class="hint" id="hint"></p>
 
         <div class="lang-switch">
-            <a id="langSwitch" onclick="toggleLang()"></a>
+            <button type="button" data-lang="zhHans" lang="zh-Hans" aria-pressed="false" onclick="applyLang('zhHans')">简体中文</button>
+            <button type="button" data-lang="zhHant" lang="zh-Hans" aria-pressed="false" onclick="applyLang('zhHant')">繁体中文</button>
+            <button type="button" data-lang="en" lang="en" aria-pressed="false" onclick="applyLang('en')">English</button>
         </div>
     </div>
 
@@ -173,31 +190,41 @@
         const APP_SCHEME = 'io.supabase.plantrec://';
 
         const i18n = {
-            zh: {
+            zhHans: {
+                pageTitle: '邮箱验证成功 - MyPlantBook',
                 title: '邮箱验证成功！',
                 subtitle: '你的植物图鉴已激活，现在可以开始探索了。',
                 btn: '打开 App',
                 autoRedirect: '正在尝试打开 App...',
-                hint: '如果没有自动跳转，请点击上方按钮',
-                langSwitch: 'English'
+                hint: '如果没有自动跳转，请点击上方按钮'
+            },
+            zhHant: {
+                pageTitle: '電子郵件驗證成功 - MyPlantBook',
+                title: '電子郵件驗證成功！',
+                subtitle: '你的植物圖鑑已啟用，現在可以開始探索了。',
+                btn: '開啟 App',
+                autoRedirect: '正在嘗試開啟 App...',
+                hint: '如果沒有自動跳轉，請點選上方按鈕'
             },
             en: {
+                pageTitle: 'Email Confirmed - MyPlantBook',
                 title: 'Email Confirmed!',
                 subtitle: 'Your plant book is ready. Start exploring now.',
                 btn: 'Open App',
                 autoRedirect: 'Opening app...',
-                hint: 'If the app doesn\'t open automatically, tap the button above.',
-                langSwitch: '中文'
+                hint: 'If the app doesn\'t open automatically, tap the button above.'
             }
         };
 
-        let currentLang = 'zh';
+        let currentLang = 'zhHans';
 
         function detectLang() {
             const lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-            // 只有中文环境显示中文，其他一律英文
+            if (lang.startsWith('zh-hant') || lang.startsWith('zh-tw') || lang.startsWith('zh-hk') || lang.startsWith('zh-mo')) {
+                return 'zhHant';
+            }
             if (lang.startsWith('zh')) {
-                return 'zh';
+                return 'zhHans';
             }
             return 'en';
         }
@@ -205,18 +232,16 @@
         function applyLang(lang) {
             currentLang = lang;
             const texts = i18n[lang];
+            document.title = texts.pageTitle;
             document.getElementById('title').textContent = texts.title;
             document.getElementById('subtitle').textContent = texts.subtitle;
             document.getElementById('btnText').textContent = texts.btn;
             document.getElementById('autoRedirectText').textContent = texts.autoRedirect;
             document.getElementById('hint').textContent = texts.hint;
-            document.getElementById('langSwitch').textContent = texts.langSwitch;
-            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-        }
-
-        function toggleLang() {
-            const newLang = currentLang === 'zh' ? 'en' : 'zh';
-            applyLang(newLang);
+            document.querySelectorAll('.lang-switch button').forEach(button => {
+                button.setAttribute('aria-pressed', String(button.dataset.lang === lang));
+            });
+            document.documentElement.lang = lang === 'zhHant' ? 'zh-Hant' : (lang === 'zhHans' ? 'zh-CN' : 'en');
         }
 
         function isMobile() {
