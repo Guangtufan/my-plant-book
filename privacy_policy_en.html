@@ -97,7 +97,7 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="effective-date">Effective Date: August 15, 2026</p>
+        <p class="effective-date">Effective Date: October 19, 2026</p>
 
         <h2>1. Developer Information</h2>
         <ul>
@@ -140,6 +140,7 @@
         <h3>2.2 Technical Data Automatically Collected</h3>
         <ul>
             <li><strong>Operations Logs</strong>: Our backend servers (Google Cloud Run) automatically record request logs for application stability monitoring, error troubleshooting, and operational maintenance. We do not intentionally include plant photo content or precise location data in application logs.</li>
+            <li><strong>Crash and Error Diagnostics (Firebase Crashlytics)</strong>: To monitor app stability and troubleshoot crashes and functional errors, Firebase Crashlytics automatically collects crash stack traces, non-fatal errors, app version, device model, operating system information, event timestamps, relevant app state, Crashlytics Installation UUIDs, Firebase installation IDs, session IDs, and diagnostic events, logs, and key-value data recorded through our controlled reporting template. We do not intentionally attach account user IDs, email addresses, plant photo content, precise location, access tokens, or user input to our custom Crashlytics reports. This data is used only for stability monitoring and troubleshooting, not for advertising tracking, targeted advertising, or user profiling. Google Analytics is not enabled in this app.</li>
             <li><strong>No advertising identifiers</strong></li>
             <li><strong>No third-party analytics tools</strong></li>
         </ul>
@@ -155,6 +156,10 @@
             <tr>
                 <td>Application Server</td>
                 <td>Google Cloud Platform — asia-east2 region (Hong Kong SAR, China)</td>
+            </tr>
+            <tr>
+                <td>Crash and Error Diagnostics</td>
+                <td>Infrastructure operated by Google Firebase; data may be processed in regions where Google and its service providers operate</td>
             </tr>
             <tr>
                 <td>Authentication & Database</td>
@@ -174,13 +179,14 @@
             </tr>
         </table>
 
-        <h3>3.2 Cross-Border Data Transfer</h3>
-        <p>Your personal information may be stored or processed outside mainland China, including:</p>
+        <h3>3.2 International Data Transfers</h3>
+        <p>Your data may be transferred to, stored in, or processed in jurisdictions outside your country or region, including:</p>
         <ul>
-            <li><strong>Hong Kong SAR, China</strong>: Main application server (Google Cloud asia-east2)</li>
+            <li><strong>Google Cloud asia-east2 region (Hong Kong SAR)</strong>: Main application server</li>
             <li><strong>Regions operated by third-party service providers</strong>: Supabase, NeonDB, Qiniu Cloud, Pl@ntNet, Mapbox, BigDataCloud, Wikipedia, and Apple services may process data in regions where they operate</li>
+            <li><strong>Regions where Google Firebase operates</strong>: Crash and error diagnostic data may be processed by Google Firebase and its service providers in regions where they operate</li>
         </ul>
-        <p>We have implemented security measures compliant with applicable data protection laws, including encrypted transmission and storage. <strong>Before using features that involve cross-border data transfer (such as plant identification), we will request your explicit authorization through an in-app dialog.</strong> If you do not agree to cross-border transfers, you may choose not to use such features.</p>
+        <p>Data protection laws may differ between countries and regions. We protect your data in accordance with applicable data protection laws using HTTPS/TLS encryption and reasonable technical and organizational safeguards. Where required by applicable law, we will obtain consent before an international transfer or rely on another lawful transfer mechanism.</p>
 
         <h3>3.3 Data Retention</h3>
         <table>
@@ -207,6 +213,10 @@
             <tr>
                 <td>Operations Logs</td>
                 <td>Retained only as long as needed for stability monitoring, troubleshooting, security, and operational maintenance</td>
+            </tr>
+            <tr>
+                <td>Crashlytics Crash and Diagnostic Data</td>
+                <td>Firebase Crashlytics retains crash stack traces, related diagnostic data, and associated identifiers for 90 days before beginning removal from live and backup systems</td>
             </tr>
         </table>
 
@@ -258,6 +268,11 @@
                 <td><strong>BigDataCloud</strong></td>
                 <td>Fallback reverse geocoding for location display</td>
                 <td><a href="https://www.bigdatacloud.com/privacy" target="_blank">https://www.bigdatacloud.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td><strong>Firebase Crashlytics</strong></td>
+                <td>Crash, non-fatal error, and app stability diagnostics</td>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank">https://firebase.google.com/support/privacy</a></td>
             </tr>
             <tr>
                 <td><strong>Supabase</strong></td>
@@ -359,7 +374,7 @@
 
         <div class="footer">
             <p>This Privacy Policy applies to the iOS app "MyPlantBook"</p>
-            <p>Last Updated: August 15, 2026</p>
+            <p>Last Updated: October 19, 2026</p>
         </div>
     </div>
 </body>

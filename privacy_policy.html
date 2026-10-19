@@ -97,7 +97,7 @@
 <body>
     <div class="container">
         <h1>隐私政策</h1>
-        <p class="effective-date">生效日期: 2026年8月15日</p>
+        <p class="effective-date">生效日期: 2026年10月19日</p>
 
         <h2>1. 开发者信息</h2>
         <ul>
@@ -140,6 +140,7 @@
         <h3>2.2 自动收集的技术数据</h3>
         <ul>
             <li><strong>运维日志</strong>: 我们的后端服务器（Google Cloud Run）会自动记录请求日志，用于应用稳定性监控、错误排查及功能运维。我们不会主动将植物照片内容或精确地理位置写入应用日志。</li>
+            <li><strong>崩溃与异常诊断（Firebase Crashlytics）</strong>：为监控 App 稳定性并排查崩溃和功能异常，Firebase Crashlytics 会自动收集崩溃堆栈、非致命异常、App 版本、设备型号、操作系统信息、事件时间、相关 App 状态、Crashlytics 安装 UUID、Firebase 安装 ID、会话 ID，以及我们通过受控模板记录的诊断事件、日志和键值。我们不会通过自定义 Crashlytics 上报内容主动附加账户用户 ID、电子邮箱、植物照片内容、精确地理位置、访问令牌或用户输入。相关数据仅用于稳定性监控和错误排查，不用于广告追踪、广告定向或用户画像；本 App 未启用 Google Analytics。</li>
             <li><strong>无广告追踪标识符</strong></li>
             <li><strong>无第三方 Analytics 工具</strong></li>
         </ul>
@@ -155,6 +156,10 @@
             <tr>
                 <td>应用服务器</td>
                 <td>Google Cloud Platform — asia-east2 区域（中国香港特别行政区）</td>
+            </tr>
+            <tr>
+                <td>崩溃与异常诊断</td>
+                <td>Google Firebase 运营的基础设施，数据可能在 Google 及其服务提供商运营的地区处理</td>
             </tr>
             <tr>
                 <td>用户认证与数据库</td>
@@ -174,13 +179,14 @@
             </tr>
         </table>
 
-        <h3>3.2 数据跨境传输</h3>
-        <p>您的个人信息可能存储或处理于中国大陆境外，包括：</p>
+        <h3>3.2 跨境数据传输</h3>
+        <p>您的数据可能会被传输至、存储于或处理于您所在国家或地区以外的司法管辖区，包括：</p>
         <ul>
-            <li><strong>中国香港特别行政区</strong>：应用主服务器（Google Cloud asia-east2）</li>
+            <li><strong>Google Cloud asia-east2 区域（香港特别行政区）</strong>：应用主服务器</li>
             <li><strong>第三方服务提供商运营地区</strong>：Supabase、NeonDB、七牛云、Pl@ntNet、Mapbox、BigDataCloud、Wikipedia 和 Apple 服务可能在其运营地区处理数据</li>
+            <li><strong>Google Firebase 运营地区</strong>：崩溃与异常诊断数据可能由 Google Firebase 及其服务提供商在其运营地区处理</li>
         </ul>
-        <p>我们已采取符合《中华人民共和国个人信息保护法》要求的安全措施保护您的数据，包括加密传输和存储。<strong>在首次使用涉及跨境数据传输的功能（如植物识别）前，我们将通过应用内弹窗请求您的明确授权。</strong>如您不同意跨境传输，可选择不使用相关功能。</p>
+        <p>不同国家和地区的数据保护法律可能有所不同。我们会依据适用的数据保护法律，采用 HTTPS/TLS 加密传输以及合理的技术和组织措施保护您的数据。当适用法律要求时，我们会在跨境传输前取得您的同意，或采用其他合法的数据传输机制。</p>
 
         <h3>3.3 数据保留期限</h3>
         <table>
@@ -207,6 +213,10 @@
             <tr>
                 <td>运维日志</td>
                 <td>仅在稳定性监控、错误排查、安全和运维所需期间保留</td>
+            </tr>
+            <tr>
+                <td>Crashlytics 崩溃与诊断数据</td>
+                <td>Firebase Crashlytics 将崩溃堆栈、相关诊断数据及关联标识符保留 90 天，之后开始从在线系统和备份系统中移除</td>
             </tr>
         </table>
 
@@ -258,6 +268,11 @@
                 <td><strong>BigDataCloud</strong></td>
                 <td>地点显示的备用反向地理编码服务</td>
                 <td><a href="https://www.bigdatacloud.com/privacy" target="_blank">https://www.bigdatacloud.com/privacy</a></td>
+            </tr>
+            <tr>
+                <td><strong>Firebase Crashlytics</strong></td>
+                <td>崩溃、非致命异常和 App 稳定性诊断</td>
+                <td><a href="https://firebase.google.com/support/privacy" target="_blank">https://firebase.google.com/support/privacy</a></td>
             </tr>
             <tr>
                 <td><strong>Supabase</strong></td>
@@ -359,7 +374,7 @@
 
         <div class="footer">
             <p>本隐私政策适用于 iOS 应用「MyPlantBook」</p>
-            <p>最后更新：2026年8月15日</p>
+            <p>最后更新：2026年10月19日</p>
         </div>
     </div>
 </body>
